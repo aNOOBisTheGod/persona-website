@@ -1,7 +1,7 @@
 //some constants
 
 const Constants = {
-  "skills": [
+  skills: [
     "Python",
     "Java",
     "C++",
@@ -16,8 +16,8 @@ const Constants = {
     "HTML",
     "CSS",
   ],
-  "skills_descriptions": {
-    "Flutter":
+  skills_descriptions: {
+    Flutter:
       "I've started to learn this framework since 2021 summer so I have quite nice experience using it. \
       Really like idea of the widget application creation instead of markdown.\
       Created some projects using it. \
@@ -88,7 +88,7 @@ function showMenu(title) {
   $(".menu").fadeIn();
   $(".menu-title").text(title);
   if (title in Constants["skills_descriptions"])
-  $(".menu-text").text(Constants["skills_descriptions"][title]);
+    $(".menu-text").text(Constants["skills_descriptions"][title]);
   // else $(".menu-text").text("idk");
   $(".menu-wrapper").fadeIn();
   $(".menu-wrapper").css("z-index", "3");
