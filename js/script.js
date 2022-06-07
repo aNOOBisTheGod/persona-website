@@ -69,12 +69,7 @@ function changeThemeButtonIcon(value) {
 }
 
 //TagCloud funcitons
-var tagCloud = TagCloud(".skills-cloud", Constants["skills"], {
-  radius: 230,
-  maxSpeed: "normal",
-  initSpeed: "normal",
-  direction: 135,
-});
+var tagCloud;
 
 function paintTagCouldItems() {
   $(".tagcloud--item").css("color", function () {
@@ -99,6 +94,29 @@ function hideMenu() {
   $(".menu-wrapper").fadeOut();
 }
 
+function initTagCloud() {
+  tagCloud = TagCloud(".skills-cloud", Constants["skills"], {
+    radius: window.innerWidth * .4,
+    maxSpeed: "normal",
+    initSpeed: "normal",
+    direction: 135,
+    keep: false,
+  });
+  paintTagCouldItems();
+  $(".tagcloud--item").css("cursor", "pointer");
+  if (window.innerWidth > 500){
+  $(".tagcloud--item").on("mouseenter", function () {
+    $(this).addClass("scaled-cloud-item");
+  });
+  $(".tagcloud--item").on("mouseleave", function () {
+    $(this).removeClass("scaled-cloud-item");
+  });
+  }
+  $(".tagcloud--item").on("click", function () {
+    showMenu(this.textContent);
+  });
+}
+
 $(document).ready(function () {
   //bouncing icons
   $(".social-network").bind(
@@ -119,17 +137,7 @@ $(document).ready(function () {
     }
   });
   //TagCloud
-  paintTagCouldItems();
-  $(".tagcloud--item").css("cursor", "pointer");
-  $(".tagcloud--item").on("mouseenter", function () {
-    $(this).addClass("scaled-cloud-item");
-  });
-  $(".tagcloud--item").on("mouseleave", function () {
-    $(this).removeClass("scaled-cloud-item");
-  });
-  $(".tagcloud--item").on("click", function () {
-    showMenu(this.textContent);
-  });
+  initTagCloud();
   //themes
   $(".toggle-theme-button").on("click", function () {
     toggleTheme();
@@ -137,4 +145,9 @@ $(document).ready(function () {
   $(".menu-wrapper").on("click", function () {
     hideMenu();
   });
+  //sizing
+  $(window).resize(function() {
+    tagCloud.destroy();
+    initTagCloud();
+  })
 });

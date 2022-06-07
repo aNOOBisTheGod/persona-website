@@ -1,8 +1,8 @@
 
-
+/* 
 html {
     overflow-x: hidden;
-}
+} */
 
 .theme-light {
     --color-primary: #FECEA8;
@@ -45,9 +45,13 @@ html {
 
 .header-title {
     padding-top: 20vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
 
 .header-subtitle {
+    padding-left: 10vw;
+    padding-right: 10vw;
     color: var(--dark-font-color);
 }
 
@@ -186,7 +190,7 @@ ul.links {
 }
 
 .scaled-cloud-item{
-    font-size: 2rem;
+    font-size: 1.4rem;
 }
 
 .menu {
@@ -235,6 +239,18 @@ ul.links {
 
 .toggle-theme-button:hover {
     box-shadow: none;
+}
+
+@media screen and (max-width: 500px){
+    .project-card {
+        width: auto;
+    }
+    .skills-cloud-wrapper{
+        width: auto;
+    }
+    .skills-cloud {
+        width: auto;
+    }
 }
 
 
