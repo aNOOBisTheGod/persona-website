@@ -96,7 +96,7 @@ function hideMenu() {
 
 function initTagCloud() {
   tagCloud = TagCloud(".skills-cloud", Constants["skills"], {
-    radius: window.innerWidth * .4,
+    radius: Math.min(window.innerWidth * .4, 230),
     maxSpeed: "normal",
     initSpeed: "normal",
     direction: 135,
