@@ -87,6 +87,8 @@ ul.links {
   text-align: center;
   background-color: var(--dark-background-color);
   padding-bottom: 10vh;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
 .section-title {
@@ -195,10 +197,9 @@ ul.links {
 .menu {
   position: fixed;
   backdrop-filter: blur(10px);
-  left: 10vw;
-  top: 15vh;
-  right: 10vw;
-  bottom: 15vh;
+  left: 25vw;
+  top: 30vh;
+  right: 25vw;
   background-color: var(--fixed-background-color);
   border-radius: 20px;
   z-index: 4;
@@ -241,8 +242,10 @@ ul.links {
 }
 
 @media screen and (max-width: 500px) {
-  .project-card {
-    width: auto;
+  .menu {
+    left: 10vw;
+    top: 30vh;
+    right: 10vw;
   }
 }
 
