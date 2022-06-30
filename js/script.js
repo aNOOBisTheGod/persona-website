@@ -8,20 +8,59 @@ const Constants = {
     "JavaScript",
     "TypeScript",
     "JQuery",
-    "Dart",
     "Flutter",
     "MySql",
     "Firebase",
     "Git/GitHub",
     "HTML",
     "CSS",
+    "C#",
+    "React",
+    "Google",
+    "Heroku",
+    "CloudFlare",
+    "GoLang",
+    "Bash",
+    "VSCode"
   ],
   skills_descriptions: {
+    Python:
+      "I've completed yandex lyceum 2 Python courses. One about basics of this language and second about \
+  product development so I have some python projects(using PyQT, pygame and Flask) and quite good knowledge of this programming language.",
+    Java: "Completed course about it, can create mobile apps but still not really good at it",
+    "C++":
+      "I know basics of this language and use it sometimes to solve competitive programming tasks",
+    JavaScript:
+      "This language is quite similar to Dart which I learnt while was studying Flutter, so I have not bad\
+    knowledge of it.",
+    TypeScript:
+      "Same thing as with JavaScript, also made some contributions in monkeytype using it",
+    JQuery:
+      "I have basic knowledge about it so I can make websites like this one.",
     Flutter:
       "I've started to learn this framework since 2021 summer so I have quite nice experience using it. \
       Really like idea of the widget application creation instead of markdown.\
       Created some projects using it. \
       You can view them all on my GitHub.",
+    MySql: "Worked with it while was creating aNOOBus, have a basic knowledge",
+    Firebase: "Used it a lot with Flutter, created OmegaChat using it",
+    "Git/GitHub":
+      "I have quite nice experience in open source contributing. I was developing discord bot with open\
+    source code with my friend and also made some contributions in monkeytype website. They're quite small, but anyways\
+    git usage was impoved really good.",
+    HTML: "I have basic knowledge about it so I can make websites like this one.",
+    CSS: "I have basic knowledge about it so I can make websites like this one.",
+    "C#": "Have a bit of experience of this language. Developed some applications using WPF and WinForms.",
+    React: "Not really used to it, completed codecademy course.",
+    Google:
+      "I guess one of the most useful tools for programmer. I am used to Google and I can easily find what I need in browser.",
+    Heroku: "Used this website to deploy aNOOBus and MegaPolls",
+    CloudFlare:
+      "Actually this website works using it cause it provides FREE SSL as I need",
+    GoLang:
+      "Not really used to this language, completed course about it basics on Stepik",
+    Bash: "Have a bit of experience of using Linux and MacOS terminal. Using them since 2022.",
+    VSCode: "I am using this code editor a lot and really used to it and love it so much."
   },
 };
 //Themes customization
@@ -96,7 +135,7 @@ function hideMenu() {
 
 function initTagCloud() {
   tagCloud = TagCloud(".skills-cloud", Constants["skills"], {
-    radius: Math.min(window.innerWidth * .4, 230),
+    radius: Math.min(window.innerWidth * 0.4, 230),
     maxSpeed: "normal",
     initSpeed: "normal",
     direction: 135,
@@ -104,13 +143,13 @@ function initTagCloud() {
   });
   paintTagCouldItems();
   $(".tagcloud--item").css("cursor", "pointer");
-  if (window.innerWidth > 500){
-  $(".tagcloud--item").on("mouseenter", function () {
-    $(this).addClass("scaled-cloud-item");
-  });
-  $(".tagcloud--item").on("mouseleave", function () {
-    $(this).removeClass("scaled-cloud-item");
-  });
+  if (window.innerWidth > 500) {
+    $(".tagcloud--item").on("mouseenter", function () {
+      $(this).addClass("scaled-cloud-item");
+    });
+    $(".tagcloud--item").on("mouseleave", function () {
+      $(this).removeClass("scaled-cloud-item");
+    });
   }
   $(".tagcloud--item").on("click", function () {
     showMenu(this.textContent);
@@ -146,8 +185,8 @@ $(document).ready(function () {
     hideMenu();
   });
   //sizing
-  $(window).resize(function() {
+  $(window).resize(function () {
     tagCloud.destroy();
     initTagCloud();
-  })
+  });
 });
