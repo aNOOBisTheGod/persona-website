@@ -130,13 +130,14 @@ ul.links {
 }
 
 .project-card {
-  width: 20rem;
+  height: auto;
   background-color: var(--project-background-color);
   text-align: left;
   margin-top: 3rem;
   box-shadow: 0px 0px 10px black;
   transition: 0.7s;
   margin: 3rem;
+  max-width: 30vw;
 }
 
 .project-card:hover {
@@ -144,10 +145,10 @@ ul.links {
 }
 
 .project-logo {
-  height: 20rem;
   object-fit: cover;
   max-width: 100%;
   min-height: 60%;
+  min-height: 200px;
 }
 
 .project-card-text-wrapper {
@@ -246,6 +247,9 @@ ul.links {
     left: 10vw;
     top: 30vh;
     right: 10vw;
+  }
+  .project-card {
+    max-width: none;
   }
 }
 
