@@ -118,20 +118,20 @@ function paintTagCouldItems() {
   });
 }
 
-function showMenu(title) {
-  $(".menu").fadeIn();
-  $(".menu-title").text(title);
-  if (title in Constants["skills_descriptions"])
-    $(".menu-text").text(Constants["skills_descriptions"][title]);
-  // else $(".menu-text").text("idk");
-  $(".menu-wrapper").fadeIn();
-  $(".menu-wrapper").css("z-index", "3");
-}
+// function showMenu(title) {
+//   $(".menu").fadeIn();
+//   $(".menu-title").text(title);
+//   if (title in Constants["skills_descriptions"])
+//     $(".menu-text").text(Constants["skills_descriptions"][title]);
+//   else $(".menu-text").text("idk");
+//   $(".menu-wrapper").fadeIn();
+//   $(".menu-wrapper").css("z-index", "3");
+// }
 
-function hideMenu() {
-  $(".menu").fadeOut();
-  $(".menu-wrapper").fadeOut();
-}
+// function hideMenu() {
+//   $(".menu").fadeOut();
+//   $(".menu-wrapper").fadeOut();
+// }
 
 function initTagCloud() {
   tagCloud = TagCloud(".skills-cloud", Constants["skills"], {
@@ -151,9 +151,9 @@ function initTagCloud() {
       $(this).removeClass("scaled-cloud-item");
     });
   }
-  $(".tagcloud--item").on("click", function () {
-    showMenu(this.textContent);
-  });
+  // $(".tagcloud--item").on("click", function () {
+  //   showMenu(this.textContent);
+  // });
 }
 
 $(document).ready(function () {
