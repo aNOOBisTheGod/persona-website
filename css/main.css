@@ -137,7 +137,7 @@ ul.links {
   box-shadow: 0px 0px 10px black;
   transition: 0.7s;
   margin: 3rem;
-  max-width: 30vw;
+  max-width: 20vw;
 }
 
 .project-card:hover {
@@ -243,6 +243,16 @@ ul.links {
 }
 
 @media screen and (max-width: 500px) {
+  .menu {
+    left: 10vw;
+    top: 30vh;
+    right: 10vw;
+  }
+  .project-card {
+    max-width: none;
+  }
+}
+@media screen and (max-width: 800px) {
   .menu {
     left: 10vw;
     top: 30vh;
