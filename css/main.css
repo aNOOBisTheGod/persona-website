@@ -26,6 +26,7 @@ html {
   --project-background-color: rgb(46, 46, 46);
   --fixed-background-color: rgba(68, 68, 68, 0.5);
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -64,6 +65,7 @@ ul.links {
   margin: 2px auto;
   line-height: 1.4;
 }
+
 .links li {
   display: inline;
   text-align: center;
@@ -160,7 +162,8 @@ ul.links {
   transition: 0.7s;
   padding-top: 5px;
 }
-.projects-list > li {
+
+.projects-list>li {
   display: inline-block;
 }
 
@@ -189,6 +192,7 @@ ul.links {
 
 .tagcloud--item {
   transition: 0.5s;
+  opacity: 1;
 }
 
 .scaled-cloud-item {
@@ -209,6 +213,7 @@ ul.links {
   padding: 5rem;
   transition: none;
 }
+
 .menu-wrapper {
   transition: none;
   position: fixed;
@@ -233,7 +238,8 @@ ul.links {
   transition: 0.5s;
   text-align: center;
 }
-.toggle-theme-button > i {
+
+.toggle-theme-button>i {
   opacity: 1;
   margin-top: 1rem;
 }
@@ -248,16 +254,19 @@ ul.links {
     top: 30vh;
     right: 10vw;
   }
+
   .project-card {
     max-width: none;
   }
 }
+
 @media screen and (max-width: 800px) {
   .menu {
     left: 10vw;
     top: 30vh;
     right: 10vw;
   }
+
   .project-card {
     max-width: none;
   }
@@ -267,18 +276,23 @@ ul.links {
   15% {
     transform: translate3d(7px, 10px, 0) skew(30deg);
   }
+
   30% {
     transform: translate3d(-3px, -5px, 0) skew(30deg, 20deg) skew(20deg);
   }
+
   45% {
     transform: translate3d(3px, 3px, 0) skew(10deg);
   }
+
   60% {
     transform: translate3d(-5px, -2px, 0);
   }
+
   75% {
     transform: translate3d(1px, 1px, 0);
   }
+
   90% {
     transform: translate3d(3px, -1px, 0);
   }

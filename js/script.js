@@ -116,7 +116,9 @@ function paintTagCouldItems() {
       Math.round(Math.random() * (themeMainColors.length - 1))
     ];
   });
+  document.getElementsByClassName("tagcloud--item")[0].innerHTML = "something";
 }
+
 
 // function showMenu(title) {
 //   $(".menu").fadeIn();
