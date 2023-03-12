@@ -89,6 +89,12 @@ def create_viewpage():
         <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="BtnAddClick">Добавить</Button>
     </Page>
     """ % txtcolumns
+    print(f"""
+    <Page Include="{name.capitalize()}Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    """)
     with open(name.capitalize() + "Page.xaml", "w", encoding="utf-8") as file:
         file.write(pageTemplate)
 
@@ -138,6 +144,10 @@ def create_viewback():
         }}
     }}
     """.format(Cname=name.capitalize(), name=name, properties_string=properties_string)
+    print(f'''
+    <Compile Include="{name.capitalize()}Page.xaml.cs">
+      <DependentUpon>{name.capitalize()}Page.xaml</DependentUpon>
+    </Compile>''')
     with open(name.capitalize() + "Page.xaml.cs", "w", encoding="utf-8") as file:
         file.write(template)
 
@@ -176,6 +186,12 @@ def create_addpage():
     </Grid>
     </Page>
     """
+    print(f"""
+    <Page Include="Add{name.capitalize()}Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    """)
     with open("Add" + name.capitalize() + "Page.xaml", "w", encoding="utf-8") as file:
         file.write(template)
 
@@ -235,6 +251,10 @@ def create_addback():
         }}
     }}
     """.format(Cname=name.capitalize(), name=name, boxesFill=boxesFill, saveFunction=saveFunction)
+    print(f'''
+    <Compile Include="Add{name.capitalize()}Page.xaml.cs">
+      <DependentUpon>Add{name.capitalize()}Page.xaml</DependentUpon>
+    </Compile>''')
     with open("Add" + name.capitalize() + "Page.xaml.cs", "w", encoding="utf-8") as file:
         file.write(template)
 
