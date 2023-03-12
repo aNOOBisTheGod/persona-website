@@ -1,0 +1,31 @@
+﻿<Window x:Class="ntoprep.EmailCodeVerificationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:ntoprep"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        Title="Email code" Height="350" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.ColumnSpan="2" FontSize="14" Name="popa" VerticalAlignment="Bottom" HorizontalAlignment="Center">На указанную почту отправлено письмо с кодом. Введите его в поле</TextBlock>
+        <wpfx:MaskedTextBox TextChanged="Code_TextChanged" Grid.ColumnSpan="2" Mask="0000-0000" Grid.Row="1" Margin="7" Name="CodeBox" Grid.Column="0" FontSize="14" TextAlignment="Center"></wpfx:MaskedTextBox>
+        <TextBlock Name="IncorrectCodeTextBlock"  Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="2" FontSize="10" Foreground="Red"></TextBlock>
+        <Button Width="150" Grid.Row="3" Grid.Column="0" Click="BtnChangeEmail_Clcik" VerticalAlignment="Top" HorizontalAlignment="Right">Изменить E-mail</Button>
+        <Button Width="150" Grid.Row="3" Grid.Column="1" Name="BtnReSent" IsEnabled="False" Click="BtnReSentCode_Clcik" VerticalAlignment="Top" HorizontalAlignment="Left">Выслать код повторно</Button>
+        
+    </Grid>
+</Window>
