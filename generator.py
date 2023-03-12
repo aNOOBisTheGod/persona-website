@@ -59,25 +59,35 @@ def create_viewpage():
         txtcolumns += """<DataGridTextColumn Header="%s" Binding="{Binding %s}" Width="*"></DataGridTextColumn>\n""" % (
             translator.translate(i[0]).capitalize(), i[0].capitalize())
     pageTemplate = f"""
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-        </Grid.RowDefinitions>
-        <DataGrid Name="DGrid{name.capitalize()}" Grid.RowSpan="1" IsReadOnly="True" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                %s
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click"></Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+    <Page x:Class="OlympGenTest.Example"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OlympGenTest"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Туры">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <DataGrid Name="DGrid{name.capitalize()}" Grid.RowSpan="1" IsReadOnly="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    %s
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
         <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="BtnAddClick">Добавить</Button>
+    </Page>
     """ % txtcolumns
     with open(name.capitalize() + "Page.xaml", "w", encoding="utf-8") as file:
         file.write(pageTemplate)
@@ -93,6 +103,8 @@ def create_viewback():
         elif "datetime" in i[1].lower():
             properties_string += f"""{name}.{i[0].capitalize()} = (DateTime)row["{i[0]}"];\n"""
     template = """
+    using System.Windows.Controls;
+
     public partial class {Cname}Page : Page
     {{
         public {Cname}Page()
@@ -143,6 +155,15 @@ def create_addpage():
         else:
             rowComponents += f"""<TextBox Name="{args[i][0].capitalize()}Box" Grid.Row="{i}"></TextBox>\n"""
     template = f"""
+    <Page x:Class="OlympGenTest.Example"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OlympGenTest"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Туры">
     <Grid>
         <Grid.RowDefinitions>
             {rowDefinitions}
@@ -152,7 +173,9 @@ def create_addpage():
         {rowComponents}
         <Button HorizontalAlignment="Right" Grid.Row="{len(args) + 1}" Click="BtnSave_Click">Сохранить</Button>
         <Button HorizontalAlignment="Left" Grid.Row="{len(args) + 1}" Click="BtnBack_Click">Назад</Button>
-    </Grid>"""
+    </Grid>
+    </Page>
+    """
     with open("Add" + name.capitalize() + "Page.xaml", "w", encoding="utf-8") as file:
         file.write(template)
 
@@ -178,6 +201,8 @@ def create_addback():
             Manager.MainFrame.Navigate(new {name.capitalize()}Page());
         """
     template = """
+    using System.Windows.Controls;
+
     public partial class Add{Cname} : Page
     {{
         private bool isEditPage = false;
