@@ -104,6 +104,11 @@ ul.links {
   padding: 10px;
 }
 
+.work-title {
+  opacity: 0.8;
+  padding: 10px;
+}
+
 .section-text {
   line-height: 2rem;
   opacity: 0.8;
