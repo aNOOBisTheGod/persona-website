@@ -22,7 +22,8 @@ const Constants = {
     "Flask",
     "BloC",
     "Dart",
-    "REST API"
+    "REST API",
+    "Kotlin",
   ],
   skills_descriptions: {
     Python:
