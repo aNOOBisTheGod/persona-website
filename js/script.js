@@ -7,7 +7,6 @@ const Constants = {
     "C++",
     "JavaScript",
     "TypeScript",
-    "JQuery",
     "Flutter",
     "MySql",
     "Firebase",
@@ -16,12 +15,14 @@ const Constants = {
     "CSS",
     "C#",
     "React",
-    "Google",
-    "Heroku",
     "CloudFlare",
-    "GoLang",
+    "Go",
     "Bash",
-    "VSCode"
+    "VSCode",
+    "Flask",
+    "BloC",
+    "Dart",
+    "REST API"
   ],
   skills_descriptions: {
     Python:
@@ -116,7 +117,7 @@ function paintTagCouldItems() {
       Math.round(Math.random() * (themeMainColors.length - 1))
     ];
   });
-  document.getElementsByClassName("tagcloud--item")[0].innerHTML = "something";
+  // document.getElementsByClassName("tagcloud--item")[0].innerHTML = "Dart";
 }
 
 
